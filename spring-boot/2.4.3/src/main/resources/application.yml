@@ -1,18 +1,20 @@
 spring:
-  profiles:
-    # demo: 演示环境，内置数据库；pro 生产环境，mysql数据库
-    active: ${active:pro}
   # hibernate 数据库 验证级别
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: ${show-sql:false}
     # 在同一请求中使用同一个EntityManager
     # https://stackoverflow.com/questions/30549489/what-is-this-spring-jpa-open-in-view-true-property-in-spring-boot
   #    open-in-view: false
   # 启用 flyway
   flyway:
-    enabled: true
+    enabled: false
+
+  # H2数据源,请在当前用户所有文件夹下建立data文件夹，并保证其可写
+  # 或者自行指定其它文件位置
+  datasource:
+    url: jdbc:h2:~/data/spring-boot
 
   # 上传文件大小限制
   servlet:
@@ -39,46 +41,3 @@ app:
     access-key-id: ID
     access-secret: scecret
     sign-name: 这里是签名
-
----
-spring:
-  config:
-    activate:
-      on-profile: pro
-  jpa:
-    hibernate:
-      ddl-auto: validate
-  flyway:
-    enabled: true
-  # 配置数据源
-  datasource:
-    url: jdbc:mysql://${datasource.url:localhost}:${datasource.port:3633}/${datasource.dbname:spring-boot}?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
-    username: ${datasource.username:spring-boot}
-    password: ${datasource.password:Zb1skynVNN4U63YWegMZRNWipY8SO8WEpVbmH4OX}
-
----
-# PJ专用数据库
-spring:
-  config:
-    activate:
-      on-profile: dev
-  flyway:
-    enabled: true
-  datasource:
-    url: jdbc:mysql://${datasource.url:localhost}:${datasource.port:3633}/${datasource.dbname:spring-boot}?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
-    username: ${datasource.username:spring-boot}
-    password: ${datasource.password:Zb1skynVNN4U63YWegMZRNWipY8SO8WEpVbmH4OX}
----
-spring:
-  config:
-    activate:
-      on-profile: demo
-  jpa:
-    hibernate:
-      ddl-auto: update
-  flyway:
-    enabled: false
-  # H2数据源,请在当前用户所有文件夹下建立data文件夹，并保证其可写
-  # 或者自行指定其它文件位置
-  datasource:
-    url: jdbc:h2:~/data/spring-boot
