@@ -49,6 +49,20 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- CORE -->
+        <dependency>
+            <groupId>com.mengyunzhi</groupId>
+            <artifactId>core</artifactId>
+            <version>3.0.1.release</version>
+        </dependency>
+
+        <!-- 阿里云短信提醒 -->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.0.3</version>
+        </dependency>
+
         <!--spring session-->
         <dependency>
             <groupId>org.springframework.session</groupId>

@@ -1,4 +1,4 @@
-package club.yunzhi.framework.springboot;
+package club.yunzhi.framework.springboot.config;
 
 import club.yunzhi.framework.springboot.security.OneTimePassword;
 import org.slf4j.Logger;

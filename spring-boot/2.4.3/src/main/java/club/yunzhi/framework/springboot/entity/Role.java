@@ -19,7 +19,7 @@ public class Role {
 
   @Column(nullable = false)
   @Id
-  private String name;
+  private String id;
 
   @Column(nullable = false)
   private String description;
@@ -30,18 +30,18 @@ public class Role {
   }
 
 
-  public Role(Long id, String name, String description, int weight) {
-    this.name = name;
+  public Role(String id, String description, int weight) {
+    this.id = id;
     this.description = description;
     this.weight = weight;
   }
 
-  public String getName() {
-    return name;
+  public String getId() {
+    return id;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setId(String name) {
+    this.id = name;
   }
 
   public String getDescription() {
@@ -65,11 +65,11 @@ public class Role {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Role role = (Role) o;
-    return Objects.equals(name, role.name);
+    return Objects.equals(id, role.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(id);
   }
 }

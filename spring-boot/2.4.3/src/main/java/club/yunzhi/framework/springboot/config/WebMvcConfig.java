@@ -1,4 +1,4 @@
-package club.yunzhi.framework.springboot;
+package club.yunzhi.framework.springboot.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;

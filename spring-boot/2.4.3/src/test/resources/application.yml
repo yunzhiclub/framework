@@ -2,7 +2,7 @@ spring:
   # hibernate 数据库 验证级别
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: ${show-sql:false}
     # 在同一请求中使用同一个EntityManager
     # https://stackoverflow.com/questions/30549489/what-is-this-spring-jpa-open-in-view-true-property-in-spring-boot
