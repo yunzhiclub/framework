@@ -5,14 +5,11 @@ import club.yunzhi.framework.springboot.repository.UserRepository;
 import club.yunzhi.framework.springboot.service.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.data.domain.AuditorAware;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpSession;
-import javax.xml.bind.ValidationException;
 import java.security.Principal;
-import java.util.List;
 
 @RestController
 @RequestMapping("user")
@@ -52,8 +49,4 @@ public class UserController {
 
   private interface GetCurrentLoginUserJsonView extends User.RolesJsonView {
   }
-
-  public interface UserBindingJsonView extends User.PasswordJsonView {
-  }
-
 }
